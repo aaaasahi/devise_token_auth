@@ -9,7 +9,7 @@ export const Login = () => {
         event.preventDefault()
         axios({
           method: 'POST',
-          url: 'http://localhost:3000/auth/sign_in',
+          url: 'http://localhost:3000/api/auth/sign_in',
           data: {
             email: email,
             password: password
@@ -26,7 +26,7 @@ export const Login = () => {
           window.location = '/'
         })
       }
-
+      
     return (
         <div>
             <p>ログイン</p>
@@ -35,7 +35,7 @@ export const Login = () => {
                     type="email"
                     name="email"
                     placeholder="メールアドレス"
-                    autocomplete="off"
+                    autoComplete="off"
                     value={email}
                     onChange={event => setEmail(event.target.value)}
                 />
@@ -47,7 +47,7 @@ export const Login = () => {
                     onChange={event => setPassword(event.target.value)}
                 />
 
-                <button type="submit">登録</button>
+                <button type="submit">ログイン</button>
             </form>
         </div>
     )

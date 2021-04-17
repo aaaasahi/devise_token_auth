@@ -7,7 +7,7 @@ export const Header = () => {
     e.preventDefault();
     axios({
       method: 'DELETE',
-      url: 'http://localhost:3000/auth/sign_out',
+      url: 'http://localhost:3000/api/auth/sign_out',
       data: JSON.parse(localStorage.user)
     })
     .then(() => {
@@ -19,7 +19,7 @@ export const Header = () => {
     <div>
     {currentUser &&
     <div>
-        {JSON.parse(currentUser).uid}
+        {JSON.parse(currentUser).name}
       <a href="#" onClick={handleSignOut} >Sign out</a>
     </div>
     }

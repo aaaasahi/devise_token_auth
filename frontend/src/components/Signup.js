@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 export const Signup = () => {
+  const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -9,10 +10,11 @@ export const Signup = () => {
         event.preventDefault()
         axios({
           method: 'POST',
-          url: 'http://localhost:3000/auth',
+          url: 'http://localhost:3000/api/auth',
           data: {
             email: email,
-            password: password
+            password: password,
+            name: name
           }
         })
         .then(response => {
@@ -26,16 +28,23 @@ export const Signup = () => {
           window.location = '/'
         })
       }
-
     return (
         <div>
             <p>新規登録</p>
             <form onSubmit={handleSubmit}>
+            <input
+                    type="name"
+                    name="name"
+                    placeholder="name"
+                    autoComplete="off"
+                    value={name}
+                    onChange={event => setName(event.target.value)}
+                />
                 <input
                     type="email"
                     name="email"
                     placeholder="メールアドレス"
-                    autocomplete="off"
+                    autoComplete="off"
                     value={email}
                     onChange={event => setEmail(event.target.value)}
                 />
