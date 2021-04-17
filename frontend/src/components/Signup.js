@@ -5,6 +5,7 @@ export const Signup = () => {
   const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [password_confirmation, setPassword_confirmation] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -14,7 +15,8 @@ export const Signup = () => {
           data: {
             email: email,
             password: password,
-            name: name
+            name: name,
+            password_confirmation: password_confirmation
           }
         })
         .then(response => {
@@ -54,6 +56,13 @@ export const Signup = () => {
                     placeholder="パスワード"
                     value={password}
                     onChange={event => setPassword(event.target.value)}
+                />
+                <input
+                    type="password"
+                    name="password_confirmation"
+                    placeholder="パスワード確認"
+                    value={password_confirmation}
+                    onChange={event => setPassword_confirmation(event.target.value)}
                 />
 
                 <button type="submit">登録</button>
